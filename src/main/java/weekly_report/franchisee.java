@@ -1,6 +1,6 @@
 package weekly_report;
 
-//updated on 22.04.26 @ 19.40 pm
+//updated on 03.05.26 @ 10.30 am
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.text.ParseException;
@@ -158,7 +158,7 @@ public class franchisee {
 		rightAlignedbody.setFont(font);
 		String[] head = { "Code", "Customer", "ZM", "CSM",  "<Sep-25",   "Oct-25", "Nov-25", "Dec-25", 
 				"Jan-26","Feb-26","Mar-26","Apr-26","May-26","Jun-26", "Jul-26","Aug-26","Sep-26",   "UAC", "Due", "Not Due", "Total",
-				"Plan-Apr", "Act 1-22" };
+				"Plan-Apr", "Act 1-30" };
 		Map<String, String> duedates = new LinkedHashMap<String, String>();
 		duedates.put("Code", "");
 		duedates.put("Name", "");
@@ -191,7 +191,7 @@ public class franchisee {
 		boolean uac = false;
 		SimpleDateFormat ft = new SimpleDateFormat("dd.MM.yyyy");
 		ZoneId defaultZoneId = ZoneId.systemDefault();
-		String notduefm = "08.04.2026"; // --Old 1-8-15-22
+		String notduefm = "15.04.2026"; // --Old 1-8-15-22
 		String trndt = "30.09.2025"; // first column - upto < mmmYY
 		LocalDate dd = ft.parse(notduefm).toInstant().atZone(ZoneId.systemDefault()).toLocalDate().minusDays(1);
 		Date d3 = Date.from(dd.atStartOfDay(defaultZoneId).toInstant());
