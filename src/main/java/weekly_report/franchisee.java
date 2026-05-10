@@ -1,6 +1,6 @@
 package weekly_report;
 
-//updated on 08.05.26 @ 17.30 pm
+//updated on 10.05.26 @ 20.30 pm
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.text.ParseException;
@@ -26,7 +26,6 @@ import org.apache.poi.ss.usermodel.BorderStyle;
 import org.apache.poi.ss.usermodel.BorderExtent;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.poi.ss.util.PropertyTemplate;
-import org.apache.poi.util.SystemOutLogger;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.DataFormat;
 import org.apache.poi.ss.usermodel.Font;
