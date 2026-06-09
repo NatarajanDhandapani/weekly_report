@@ -1,6 +1,6 @@
 package weekly_report;
 
-//updated on 15.05.26 @ 21.30 pm
+//updated on 09.06.26 @ 16.40 am
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.text.ParseException;
@@ -157,17 +157,11 @@ public class franchisee {
 		rightAlignedbody.setFont(font);
 		String[] head = { "Code", "Customer", "ZM", "CSM",  "<Sep-25",   "Oct-25", "Nov-25", "Dec-25", 
 				"Jan-26","Feb-26","Mar-26","Apr-26","May-26","Jun-26", "Jul-26","Aug-26","Sep-26",   "UAC", "Due", "Not Due", "Total",
-				"Plan-May", "Act 1-15" };
+				"Plan-Jun", "Act 1-9" };
 		Map<String, String> duedates = new LinkedHashMap<String, String>();
 		duedates.put("Code", "");
 		duedates.put("Name", "");
 		
-		
-		
-		duedates.put("Mar-1st", "21.03.26");
-		duedates.put("Mar-2nd", "28.03.26");
-		duedates.put("Mar-3rd", "07.04.26");
-		duedates.put("Mar-4th", "14.04.26");
 		
 		duedates.put("Apr-1st", "21.04.26");
 		duedates.put("Apr-2nd", "28.04.26");
@@ -178,6 +172,11 @@ public class franchisee {
 		duedates.put("May-2nd", "28.05.26");
 		duedates.put("May-3rd", "07.06.26");
 		duedates.put("May-4th", "14.06.26");
+		
+		duedates.put("Jun-1st", "21.06.26");
+		duedates.put("Jun-2nd", "28.06.26");
+		duedates.put("Jun-3rd", "07.06.26");
+		duedates.put("Jun-4th", "14.06.26");
 		
 		
 		Set<String> head1 = new LinkedHashSet<String>(duedates.keySet());
@@ -191,7 +190,7 @@ public class franchisee {
 		boolean uac = false;
 		SimpleDateFormat ft = new SimpleDateFormat("dd.MM.yyyy");
 		ZoneId defaultZoneId = ZoneId.systemDefault();
-		String notduefm = "01.05.2026"; // --Old 1-8-15-22
+		String notduefm = "22.05.2026"; // --Old 1-8-15-22
 		String trndt = "30.09.2025"; // first column - upto < mmmYY
 		LocalDate dd = ft.parse(notduefm).toInstant().atZone(ZoneId.systemDefault()).toLocalDate().minusDays(1);
 		Date d3 = Date.from(dd.atStartOfDay(defaultZoneId).toInstant());
@@ -259,7 +258,7 @@ public class franchisee {
 		// @SuppressWarnings("resource")
 		Map<Integer, Map<Integer, Double>> nested = led.stream().filter(a -> {
 			try {
-				return (a.trndt.after(ft.parse("28.02.2026")) && a.trndt.before(ft.parse("31.05.2026"))
+				return (a.trndt.after(ft.parse("31.03.2026")) && a.trndt.before(ft.parse("30.06.2026"))
 						&& a.getAmount() > 0);
 			} catch (ParseException e) {
 				e.printStackTrace();
@@ -444,10 +443,6 @@ public class franchisee {
 		TreeMap<Integer, Integer> wh = new TreeMap<Integer, Integer>();
 		
 		
-		wh.put(2026031, row++);
-		wh.put(2026032, row++);
-		wh.put(2026033, row++);
-		wh.put(2026034, row++);
 		
 		wh.put(2026041, row++);
 		wh.put(2026042, row++);
@@ -458,6 +453,11 @@ public class franchisee {
 		wh.put(2026052, row++);
 		wh.put(2026053, row++);
 		wh.put(2026054, row++);
+	
+		wh.put(2026061, row++);
+		wh.put(2026062, row++);
+		wh.put(2026063, row++);
+		wh.put(2026064, row++);
 	
 		
 		XSSFSheet sheet1 = wb.createSheet("Weekwise");
@@ -569,7 +569,7 @@ public class franchisee {
 		sheet.setColumnHidden(3, true); // zm name column
 		for (int cc = 6; cc < head.length + 1; cc++)
 			sheet.setColumnWidth(cc, (cc < 16) ? 2550 : 2650);
-		for (int a = 14; a < 18; a++)
+		for (int a = 15; a < 18; a++)
 			sheet.setColumnHidden(a, true);
 		sheet1.setColumnWidth(0, 500);
 		sheet1.setColumnWidth(1, 1800);
