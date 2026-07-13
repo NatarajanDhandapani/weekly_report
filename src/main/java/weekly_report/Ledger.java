@@ -1,5 +1,5 @@
 //package lesson;
-// updated on 17.04.26 @ 20.30 hrs
+// updated on 13.07.26 @ 06.30 hrs
 
 
 package weekly_report;
@@ -44,8 +44,8 @@ public class Ledger {
 		LocalDate d1 = d.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 		int a = Integer.parseInt(
 				d1.getYear() + ("00" + d1.getMonthValue()).substring(("00" + d1.getMonthValue()).length() - 2));
-		if (a <= 202509)
-			a = 202509;
+		if (a <= 202512)
+			a = 202512;
 		return "" + this.code + "~" + a;
 	}
 	public Integer week() {

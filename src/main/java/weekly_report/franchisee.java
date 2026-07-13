@@ -1,6 +1,6 @@
 package weekly_report;
 
-//updated on 08.07.26 @ 18.30 pm
+//updated on 13.07.26 @ 06.30 am
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.text.ParseException;
@@ -155,8 +155,8 @@ public class franchisee {
 		font.setItalic(false);
 		rightAlignedbody.setAlignment(HorizontalAlignment.RIGHT);
 		rightAlignedbody.setFont(font);
-		String[] head = { "Code", "Customer", "ZM", "CSM",  "<Sep-25",   "Oct-25", "Nov-25", "Dec-25", 
-				"Jan-26","Feb-26","Mar-26","Apr-26","May-26","Jun-26", "Jul-26","Aug-26","Sep-26",   "UAC", "Due", "Not Due", "Total",
+		String[] head = { "Code", "Customer", "ZM", "CSM",  "<Dec-25", "Jan-26","Feb-26","Mar-26",
+				"Apr-26","May-26","Jun-26", "Jul-26","Aug-26","Sep-26", "Oct-26", "Nov-26", "Dec-26",  "UAC", "Due", "Not Due", "Total",
 				"Plan-Jul", "Act 1-8" };
 		Map<String, String> duedates = new LinkedHashMap<String, String>();
 		duedates.put("Code", "");
@@ -272,9 +272,6 @@ public class franchisee {
 		TreeMap<String, Integer> mh = new TreeMap<>();
 		
 		
-		mh.put("202509", row++);
-		mh.put("202510", row++);
-		mh.put("202511", row++);
 		mh.put("202512", row++);
 		mh.put("202601", row++);
 		mh.put("202602", row++);
@@ -285,7 +282,9 @@ public class franchisee {
 		mh.put("202607", row++);
 		mh.put("202608", row++);
 		mh.put("202609", row++);
-		
+		mh.put("202610", row++);
+		mh.put("202611", row++);
+		mh.put("202612", row++);
 		
 		
 		mh.put("309903", 18); /* not to correct old 15 */
@@ -541,7 +540,7 @@ public class franchisee {
 		}
 		// closing the files
 		PropertyTemplate pt = new PropertyTemplate();
-		pt.drawBorders(new CellRangeAddress(4, 100, 1, sheet.getRow(4).getLastCellNum() - 1), BorderStyle.THIN,
+		pt.drawBorders(new CellRangeAddress(4, 95, 1, sheet.getRow(4).getLastCellNum() - 1), BorderStyle.THIN,
 				IndexedColors.GREY_25_PERCENT.getIndex(), BorderExtent.ALL);
 		pt.applyBorders(sheet);
 		pt = new PropertyTemplate();
@@ -568,7 +567,7 @@ public class franchisee {
 		sheet.setColumnHidden(3, true); // zm name column
 		for (int cc = 6; cc < head.length + 1; cc++)
 			sheet.setColumnWidth(cc, (cc < 16) ? 2550 : 2650);
-		for (int a = 16; a < 18; a++)
+		for (int a = 13; a < 18; a++)
 			sheet.setColumnHidden(a, true);
 		sheet1.setColumnWidth(0, 500);
 		sheet1.setColumnWidth(1, 1800);
