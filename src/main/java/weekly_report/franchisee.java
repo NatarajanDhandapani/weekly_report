@@ -1,6 +1,6 @@
 package weekly_report;
 
-//updated on 13.07.26 @ 06.30 am
+//updated on 15.07.26 @ 10.30 am
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.text.ParseException;
@@ -157,7 +157,7 @@ public class franchisee {
 		rightAlignedbody.setFont(font);
 		String[] head = { "Code", "Customer", "ZM", "CSM",  "<Dec-25", "Jan-26","Feb-26","Mar-26",
 				"Apr-26","May-26","Jun-26", "Jul-26","Aug-26","Sep-26", "Oct-26", "Nov-26", "Dec-26",  "UAC", "Due", "Not Due", "Total",
-				"Plan-Jul", "Act 1-8" };
+				"Plan-Jul", "Act 1-15" };
 		Map<String, String> duedates = new LinkedHashMap<String, String>();
 		duedates.put("Code", "");
 		duedates.put("Name", "");
@@ -189,7 +189,7 @@ public class franchisee {
 		boolean uac = false;
 		SimpleDateFormat ft = new SimpleDateFormat("dd.MM.yyyy");
 		ZoneId defaultZoneId = ZoneId.systemDefault();
-		String notduefm = "22.06.2026"; // --Old 1-8-15-22
+		String notduefm = "01.07.2026"; // --Old 1-8-15-22
 		String trndt = "30.09.2025"; // first column - upto < mmmYY
 		LocalDate dd = ft.parse(notduefm).toInstant().atZone(ZoneId.systemDefault()).toLocalDate().minusDays(1);
 		Date d3 = Date.from(dd.atStartOfDay(defaultZoneId).toInstant());
@@ -417,7 +417,7 @@ public class franchisee {
 		row++;
 		for (col = 5; col < head.length + 1; col++) {
 			sheet.getRow(row).createCell(col)
-					.setCellFormula("sum(" + (char) (97 + col) + "84:" + (char) (97 + col) + 95 + ")/10^5");
+					.setCellFormula("sum(" + (char) (97 + col) + "84:" + (char) (97 + col) + 93 + ")/10^5");
 			sheet.getRow(row).getCell(col).setCellStyle(amount1);
 		}
 		row++;
