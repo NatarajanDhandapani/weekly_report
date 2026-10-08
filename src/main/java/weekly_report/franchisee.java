@@ -1,6 +1,6 @@
 package weekly_report;
 
-//updated on 03.10.26 @ 08.00 am
+//updated on 08.10.26 @ 05.30 am
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.text.ParseException;
@@ -155,19 +155,14 @@ public class franchisee {
 		font.setItalic(false);
 		rightAlignedbody.setAlignment(HorizontalAlignment.RIGHT);
 		rightAlignedbody.setFont(font);
-		String[] head = { "Code", "Customer", "ZM", "CSM",  "<Dec-25", "Jan-26","Feb-26","Mar-26",
-				"Apr-26","May-26","Jun-26", "Jul-26","Aug-26","Sep-26", "Oct-26", "Nov-26", "Dec-26",  "UAC", "Due", "Not Due", "Total",
-				"Plan-Sep", "Act 1-30" };
+		String[] head = { "Code", "Customer", "ZM", "CSM",  "<Mar-26",
+				"Apr-26","May-26","Jun-26", "Jul-26","Aug-26","Sep-26", "Oct-26", "Nov-26", "Dec-26",  "Jan-27","Feb-27","Mar-27", "UAC", "Due", "Not Due", "Total",
+				"Plan-Oct", "Act 1-7" };
 		Map<String, String> duedates = new LinkedHashMap<String, String>();
 		duedates.put("Code", "");
 		duedates.put("Name", "");
 		
 				
-		
-		duedates.put("Jul-1st", "21.07.26");
-		duedates.put("Jul-2nd", "28.07.26");
-		duedates.put("Jul-3rd", "07.08.26");
-		duedates.put("Jul-4th", "14.08.26");
 		
 		duedates.put("Aug-1st", "21.08.26");
 		duedates.put("Aug-2nd", "28.08.26");
@@ -178,6 +173,11 @@ public class franchisee {
 		duedates.put("Sep-2nd", "28.09.26");
 		duedates.put("Sep-3rd", "07.10.26");
 		duedates.put("Sep-4th", "14.10.26");
+		
+		duedates.put("Oct-1st", "21.10.26");
+		duedates.put("Oct-2nd", "28.10.26");
+		duedates.put("Oct-3rd", "07.11.26");
+		duedates.put("Oct-4th", "14.11.26");
 		
 		
 		Set<String> head1 = new LinkedHashSet<String>(duedates.keySet());
@@ -191,8 +191,8 @@ public class franchisee {
 		boolean uac = false;
 		SimpleDateFormat ft = new SimpleDateFormat("dd.MM.yyyy");
 		ZoneId defaultZoneId = ZoneId.systemDefault();
-		String notduefm = "15.09.2026"; // --Old 1-8-15-22
-		String trndt = "30.09.2025"; // first column - upto < mmmYY
+		String notduefm = "22.09.2026"; // --Old 1-8-15-22
+		String trndt = "31.03.2026"; // first column - upto < mmmYY
 		LocalDate dd = ft.parse(notduefm).toInstant().atZone(ZoneId.systemDefault()).toLocalDate().minusDays(1);
 		Date d3 = Date.from(dd.atStartOfDay(defaultZoneId).toInstant());
 		List<Ledger> led = new ArrayList<Ledger>();
@@ -259,7 +259,7 @@ public class franchisee {
 		// @SuppressWarnings("resource")
 		Map<Integer, Map<Integer, Double>> nested = led.stream().filter(a -> {
 			try {
-				return (a.trndt.after(ft.parse("30.06.2026")) && a.trndt.before(ft.parse("30.09.2026"))
+				return (a.trndt.after(ft.parse("31.07.2026")) && a.trndt.before(ft.parse("31.10.2026"))
 						&& a.getAmount() > 0);
 			} catch (ParseException e) {
 				e.printStackTrace();
@@ -274,9 +274,6 @@ public class franchisee {
 		TreeMap<String, Integer> mh = new TreeMap<>();
 		
 		
-		mh.put("202512", row++);
-		mh.put("202601", row++);
-		mh.put("202602", row++);
 		mh.put("202603", row++);
 		mh.put("202604", row++);
 		mh.put("202605", row++);
@@ -287,6 +284,10 @@ public class franchisee {
 		mh.put("202610", row++);
 		mh.put("202611", row++);
 		mh.put("202612", row++);
+		mh.put("202701", row++);
+		mh.put("202702", row++);
+		mh.put("202703", row++);
+	
 		
 		
 		mh.put("309903", 18); /* not to correct old 15 */
@@ -443,11 +444,6 @@ public class franchisee {
 		TreeMap<Integer, Integer> wh = new TreeMap<Integer, Integer>();
 		
 		
-		wh.put(2026071, row++);
-		wh.put(2026072, row++);
-		wh.put(2026073, row++);
-		wh.put(2026074, row++);
-		
 		wh.put(2026081, row++);
 		wh.put(2026082, row++);
 		wh.put(2026083, row++);
@@ -457,6 +453,11 @@ public class franchisee {
 		wh.put(2026092, row++);
 		wh.put(2026093, row++);
 		wh.put(2026094, row++);
+		
+		wh.put(2026101, row++);
+		wh.put(2026102, row++);
+		wh.put(2026103, row++);
+		wh.put(2026104, row++);
 		
 		
 		XSSFSheet sheet1 = wb.createSheet("Weekwise");
@@ -568,7 +569,7 @@ public class franchisee {
 		sheet.setColumnHidden(3, true); // zm name column
 		for (int cc = 6; cc < head.length + 1; cc++)
 			sheet.setColumnWidth(cc, (cc < 16) ? 2550 : 2650);
-		for (int a = 13; a < 15; a++)
+		for (int a = 13; a < 18; a++)
 			sheet.setColumnHidden(a, true);
 		sheet1.setColumnWidth(0, 500);
 		sheet1.setColumnWidth(1, 1800);
