@@ -1,6 +1,6 @@
 package weekly_report;
 
-//updated on 08.10.26 @ 05.30 am
+//updated on 01.11.26 @ 19.00 pm
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.text.ParseException;
@@ -157,7 +157,7 @@ public class franchisee {
 		rightAlignedbody.setFont(font);
 		String[] head = { "Code", "Customer", "ZM", "CSM",  "<Mar-26",
 				"Apr-26","May-26","Jun-26", "Jul-26","Aug-26","Sep-26", "Oct-26", "Nov-26", "Dec-26",  "Jan-27","Feb-27","Mar-27", "UAC", "Due", "Not Due", "Total",
-				"Plan-Oct", "Act 1-7" };
+				"Plan-Oct", "Act 1-31" };
 		Map<String, String> duedates = new LinkedHashMap<String, String>();
 		duedates.put("Code", "");
 		duedates.put("Name", "");
@@ -191,7 +191,7 @@ public class franchisee {
 		boolean uac = false;
 		SimpleDateFormat ft = new SimpleDateFormat("dd.MM.yyyy");
 		ZoneId defaultZoneId = ZoneId.systemDefault();
-		String notduefm = "22.09.2026"; // --Old 1-8-15-22
+		String notduefm = "15.10.2026"; // --Old 1-8-15-22
 		String trndt = "31.03.2026"; // first column - upto < mmmYY
 		LocalDate dd = ft.parse(notduefm).toInstant().atZone(ZoneId.systemDefault()).toLocalDate().minusDays(1);
 		Date d3 = Date.from(dd.atStartOfDay(defaultZoneId).toInstant());
@@ -202,9 +202,11 @@ public class franchisee {
 		Workbook xls = WorkbookFactory.create(xlsfile);
 		System.out.println("updating customer list  ...");
 		Sheet sht = xls.getSheetAt(0);
+		int c = 0;
 		for (Row r : sht) {
 	 		if (r.getRowNum() > 0) {
-				{
+				System.out.println(c++);
+	 			{
 					Master a1 = new Master((int) r.getCell(0).getNumericCellValue(), r.getCell(1).getStringCellValue(),
 							r.getCell(2).getStringCellValue(), r.getCell(3).getStringCellValue(),
 							(int) r.getCell(4).getNumericCellValue(), r.getCell(6).getNumericCellValue(),
